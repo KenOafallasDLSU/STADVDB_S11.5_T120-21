@@ -5,6 +5,7 @@ exports.renderHome = (req, res) => {
     pageCSS: "homeCSS",
     pageJS: "homeJS",
     pageTitle: "Home",
+    navbarTitle: "STADVDB Group 3 Query Application"
   })
 }
 
