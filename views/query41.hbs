@@ -1,3 +1,66 @@
 <div id = 'Query-4-1'>
-  Query 4-1
+  <div class="row p-1">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-sm-12 input-group">
+          <!-- District Drop Down -->
+          <label for="district">Select District</label>
+          <div class="p-1">
+            <select id="districtSelect" name="districtSelect">
+              {{#each districtList}}
+                <option class = "districtOption" value = {{ A2 }}>{{ A2 }}</option>
+              {{/each}}
+            </select>
+          </div>
+
+          <!-- Card Type Drop Down -->
+          <label for="cardType">Select Card Type</label>
+          <div class="p-1">
+            <select id="cardTypeSelect" name="cardTypeSelect">
+              {{#each cardTypeList}}
+                <option class = "cardTypeOption" value = {{ val }}>{{ type }}</option>
+              {{/each}}
+            </select>
+          </div>
+
+          <!-- Transaction Type Drop Down -->
+          <label for="transType">Select Transaction Type</label>
+          <div class="p-1">
+            <select id="transSelect" name="transSelect">
+                <option class = "transOption" value = "PRIJEM">Credit</option>
+                <option class = "transOption" value = "VYDAJ">Debit</option>
+            </select>
+          </div>
+
+          <!-- Execute Query button -->
+          <div>
+            <button type="button" id="btnSubmit" class="btn btn-md btn-success btn-sm">Query</button>
+          </div>                          
+        </div>     
+      </div> 
+    </form>
+  </div>
+
+  <table class="table table-striped">
+    <thead class="thread-dark">
+      <tr>
+        <th scope="col">District</th>
+        <th scope="col">Card Type</th>
+        <th scope="col">Transaction Type</th>
+        <th scope="col">Sum</th>
+        <th scope="col">Count</th>
+      </tr>
+    </thead>
+    <tbody id="resultRecords">
+      {{#each results}}
+        <tr>
+          <td>{{district}}</th>
+          <td>{{type}}</td>
+          <td>{{trans}}</td>
+          <td>{{sum}}</td>
+          <td>{{count}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
