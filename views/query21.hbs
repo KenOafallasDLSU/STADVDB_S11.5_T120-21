@@ -1,0 +1,41 @@
+<div class="container">
+  <form>
+    <div class="form-group row justify-content-center">
+      <label for="disp-type" class="col-sm-0 col-form-label">{{selectHolderLabel}}</label>
+      <div class="col-sm-2">
+        <select id="disp-type-select" class="form-control">
+          {{#each selectHolderOptions}}
+          <option class="disp-type-option" value="{{option}}">{{option}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <label for="card-type" class="col-sm-0 col-form-label">{{selectCardLabel}}</label>
+      <div class="col-sm-2">
+        <select id="card-type-select" class="form-control">
+          {{#each selectCardOptions}}
+          <option class="card-type-option" value="{{option}}">{{option}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-1">
+        <button type="button" id="submit-btn" class="btn btn-success">Query</button>
+      </div>
+    </div>
+  </form>
+  <table class="table table-striped text-center">
+    <thead>
+      {{#each tableHeaders}}
+      <th scope="col">{{label}}</th>
+      {{/each}}
+    </thead>
+    <tbody id="results-table-body">
+      {{#each results}}
+      <tr>
+        <td>{{holder}}</td>
+        <td>{{type}}</td>
+        <td>{{count}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
