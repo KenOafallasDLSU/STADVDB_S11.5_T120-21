@@ -1,0 +1,60 @@
+<div id ='Query-1-2'>
+  <div class="row p-1">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-sm-12 input-group">
+
+          <!-- Characterization Type Number Select -->
+          <label for="charTypeselect">Select Characterization Type</label>
+          <div class="p-1">
+            <select id="charTypeSelect" name="charTypeSelect">
+              {{#each charTypeList}}
+                <option class="charTypeOption" value={{ val }}>{{ type }}</option>
+              {{/each}}
+            </select>
+          </div>
+
+          <!-- Start Date -->
+          <label for="startDate">Start Date</label>
+          <div class="p=1">
+              <input type="date" name="sStartDate" id="startDate" value='1993-01-01' placeholder="startDate">
+          </div>
+
+          <!-- End Date -->
+          <label for="endDate">End Date</label>
+          <div class="p-1">
+              <input type="date" name="endDate" id="endDate" value='1998-12-31' placeholder="endDate">           
+          </div>
+
+          <!-- Execute Query button -->
+          <div>
+            <button type="button" id="btnSubmit" class="btn btn-md btn-success btn-sm">Query</button>
+          </div>                          
+        </div>     
+      </div> 
+    </form>
+  </div>
+  <div>
+    <p>Note: Only years 1993 to 1998 have actual data entries in the database.</p>
+    <p id="latestQuery"><p class="m-1" id="dates"></p><p class="m-1" id="charType"></p></p>
+  </div>
+
+  <table class="table table-striped">
+    <thead class="thread-dark">
+      <tr>
+        <th scope="col">Account ID</th>
+        <th scope="col">Sum of Transactions</th>
+        <th scope="col">Balance</th>
+      </tr>
+    </thead>
+    <tbody id="resultRecords">
+      {{#each results}}
+        <tr>
+          <td>{{accountID}}</th>
+          <td>{{sum}}</td>
+          <td>{{count}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
