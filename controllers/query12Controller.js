@@ -38,9 +38,7 @@ exports.renderMain = (req, res) => {
     ],
     results: [
       {
-        k_symbol: 'Loan Payment',
-        start_date: 'wow',
-        end_date: 'zers',
+        accountID: 0,
         sum: 0,
         count: 0
       }
