@@ -1,0 +1,55 @@
+<div id ='Query-1-1'>
+  <div class="row p-1">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-sm-12 input-group">
+
+          <!-- Account ID Number Select -->
+          <label for="accountID">Select Account ID</label>
+          <div class="p-1">
+            <input type="number" min="1" max="11382" name="accountID" id="accountID" value="1">
+          </div>
+
+          <!-- Start Date -->
+          <label for="startDate">Start Date</label>
+          <div class="p=1">
+              <input type="date" name="sStartDate" id="startDate" value='1993-01-01' placeholder="startDate">
+          </div>
+
+          <!-- End Date -->
+          <label for="endDate">End Date</label>
+          <div class="p-1">
+              <input type="date" name="endDate" id="endDate" value='1998-12-31' placeholder="endDate">           
+          </div>
+
+          <!-- Execute Query button -->
+          <div>
+            <button type="button" id="btnSubmit" class="btn btn-md btn-success btn-sm">Query</button>
+          </div>                          
+        </div>     
+      </div> 
+    </form>
+  </div>
+  <div>
+    <p>Note: Only years 1993 to 1998 have actual data entries in the database.</p>
+  </div>
+
+  <table class="table table-striped">
+    <thead class="thread-dark">
+      <tr>
+        <th scope="col">Account ID</th>
+        <th scope="col">Dates Queried</th>
+        <th scope="col">Balance</th>
+      </tr>
+    </thead>
+    <tbody id="resultRecords">
+      {{#each results}}
+        <tr>
+          <td>{{account_id}}</th>
+          <td>{{start_date}} - {{end_date}}</td>
+          <td>{{balance}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
