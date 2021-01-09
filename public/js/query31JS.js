@@ -7,7 +7,7 @@ addRecordRow = (item, parentDiv) => {
 
     $(sum).text(item.sum);
     $(district).text(item.district);
-    $(count) = text(item.count);
+    $(count).text(item.count);
 
     row.append(sum);
     row.append(district);
@@ -25,7 +25,7 @@ $(document).ready(() => {
         $.post('query31/postQuery31',{kSymbol: kSymbol, district: district},(data,status) => {
             console.log(data);
 
-            let resultTable = ('#resultRecords');
+            let resultTable = $('#resultRecords');
             resultTable.empty();
 
             data.forEach((item,i) => {
