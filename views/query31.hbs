@@ -1,0 +1,54 @@
+<div id = 'query-3-1'>
+    <div class = 'row p-1'>
+        <form>
+            <div class = 'form-row'>
+                <div class = 'form-group col-sm-12 input-group'>
+                    <!-- Characterization Type Number Select -->
+                    <label for="charTypeselect">Select Characterization Type</label>
+                    <div class="p-1">
+                        <select id="kSymbolSelect" name="charTypeSelect">
+                        {{#each kSymbolList}}
+                            <option class="charTypeOption" value={{ val }}>{{ type }}</option>
+                        {{/each}}
+                        </select>
+                    </div>
+
+                    <!-- District Drop Down -->
+                    <label for="district">Select District</label>
+                    <div class="p-1">
+                        <select id="districtSelect" name="districtSelect">
+                        {{#each districtList}}
+                            <option class = "districtOption" value = {{ A2 }}>{{ A2 }}</option>
+                        {{/each}}
+                        </select>
+                    </div>
+
+                    <!-- Execute Query button -->
+                    <div>
+                        <button type="button" id="btnSubmit" class="btn btn-md btn-success btn-sm">Query</button>
+                    </div>           
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead class="thread-dark">
+            <tr>
+                <th scope="col">District</th>
+                <th scope="col">Sum</th>
+                <th scope="col">Count</th>
+            </tr>
+            </thead>
+            <tbody id="resultRecords">
+            {{#each results}}
+                <tr>
+                <td>{{district}}</th>
+                <td>{{sum}}</td>
+                <td>{{count}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
