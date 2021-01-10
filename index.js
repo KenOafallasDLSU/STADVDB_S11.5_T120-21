@@ -34,9 +34,9 @@ const home = require('./routes/homeRoutes.js')
 const query21 = require('./routes/query21Routes.js')
 const query11 = require('./routes/query11Routes.js')
 const query12 = require('./routes/query12Routes.js')
-// const query22 = require('./routes/query22.js')
-// const query31 = require('./routes/query31.js')
 const query32 = require('./routes/query32Routes.js')
+const query31 = require('./routes/query31Routes.js')
+const query22 = require('./routes/query22Routes.js')
 const query41 = require('./routes/query41Routes.js')
 
 //use routes
@@ -44,9 +44,9 @@ app.use('/', home)
 app.use('/query21', query21)
 app.use('/query11', query11)
 app.use('/query12', query12)
-// app.use('/query22', query22)
-// app.use('/query31', query31)
 app.use('/query32', query32)
+app.use('/query31', query31)
+app.use('/query22', query22)
 app.use('/query41', query41)
 
 //static hosting
