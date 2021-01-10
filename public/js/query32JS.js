@@ -18,7 +18,7 @@ addRecordRow = (item, parentDiv) => {
 
 $(document).ready(() => {
     $('#btnSubmit').on('click', () => {
-        let k_symbol = $('#kSymbolSelect').val();
+        let k_symbol = $('#kSymbolSelect option:selected').text();
         let startDate = $('#startDate').val();
         let endDate = $('#endDate').val();
         console.log(`k_symbol: ${k_symbol}`);
