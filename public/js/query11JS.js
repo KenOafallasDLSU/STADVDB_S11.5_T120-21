@@ -36,7 +36,7 @@ $(document).ready(() => {
                 console.log(item);
                 
                 if (item.balance === null)
-                    item.balance = 0;
+                    item.balance = 'N/A';
                 
                 item.accountID = accountID;
                 item.startDate = startDate;

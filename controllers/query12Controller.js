@@ -8,41 +8,43 @@ exports.renderMain = (req, res) => {
     navbarTitle: "Query 1-2",
     charTypeList: [
       {
-        val: 'POJISTNE',
+        val: 'insurance_payment',
         type: 'Insurance Payment'
       },
       {
-        val: 'SLUZBY',
-        type: 'Payment of Statement',
+        val: 'payment_on_statement',
+        type: 'Payment on Statement',
       },
       {
-        val: 'UROK',
+        val: 'interest_credit',
         type: 'Interest Credited'
       },
       {
-        val: 'SANKC. UROK',
-        type: 'Sanction Interest if Negative Balance'
+        val: 'sanction_interest',
+        type: 'Sanction Interest'
       },
       {
-        val: 'SIPO',
+        val: 'household',
         type: 'Household Payment'
       },
       {
-        val: 'DUCHOD',
-        type: 'Old-age Pension Payment'
+        val: 'retirement_pension',
+        type: 'Retirement Pension'
       },
       {
-        val: 'UVER',
+        val: 'loan',
         type: 'Loan Payment'
+      },
+      {
+        val: 'misc_payment',
+        type: 'Misc. Payment'
+      },
+      {
+        val: 'misc_credit',
+        type: 'Misc. Credit'
       }
     ],
-    results: [
-      {
-        accountID: 0,
-        sum: 0,
-        count: 0
-      }
-    ]
+    results: []
   })
 }
 
