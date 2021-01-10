@@ -20,7 +20,7 @@ $(document).ready(() => {
     $('#btnSubmit').on('click',() =>{
         console.log(Date());
         let kSymbol = $('#kSymbolSelect').val();
-        let district = $('#districtSelect').val();
+        let district = $('#districtSelect option:selected').text();
 
         $.post('query31/postQuery31',{kSymbol: kSymbol, district: district},(data,status) => {
             console.log(data);
