@@ -1,16 +1,16 @@
 addRecordRow = (item, parentDiv) => {
     var row = document.createElement('tr');
 
-    var sum = document.createElement('td');
     var district = document.createElement('td');
+    var sum = document.createElement('td');
     var count = document.createElement('td');
 
-    $(sum).text(item.sum);
     $(district).text(item.district);
+    $(sum).text(item.sum);
     $(count).text(item.count);
 
-    row.append(sum);
     row.append(district);
+    row.append(sum);
     row.append(count);
 
     parentDiv.append(row)
