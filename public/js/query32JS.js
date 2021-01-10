@@ -32,14 +32,19 @@ $(document).ready(() => {
             let resultTable = $('#resultRecords');
             resultTable.empty(); // clear table data
 
-            data.forEach((item, i) => {
-                console.log(item);
-            
-                //populate table
-                $('#dates').text(`Queried Dates: ${startDate} to ${endDate}`);
-                $('#charType').text(`Queried Characterization Type: ${$('#charTypeSelect option:selected').text()}`);
-                addRecordRow(item, resultTable);
-            });
+            if (data.length === 0) {
+                addRecordRow({district: 'N/A', count: 0, sum: 0}, resultTable);
+            }
+            else {
+                data.forEach((item, i) => {
+                    console.log(item);
+                    
+                    //populate table
+                    $('#dates').text(`Queried Dates: ${startDate} to ${endDate}`);
+                    $('#charType').text(`Queried Characterization Type: ${$('#charTypeSelect option:selected').text()}`);
+                    addRecordRow(item, resultTable);
+                });
+            }
         });
     });
 })
