@@ -19,7 +19,7 @@ addRecordRow = (item, parentDiv) => {
 $(document).ready(() => {
     $('#btnSubmit').on('click',() =>{
         console.log(Date());
-        let kSymbol = $('#kSymbolSelect').val();
+        let kSymbol = $('#kSymbolSelect option:selected').text();
         let district = $('#districtSelect option:selected').text();
 
         $.post('query31/postQuery31',{kSymbol: kSymbol, district: district},(data,status) => {
@@ -31,14 +31,6 @@ $(document).ready(() => {
             data.forEach((item,i) => {
                 if (item.kSymbol === null)
                     item.kSymbol = kSymbol
-                if (item.kSymbol === 'POJISTNE')
-                    item.kSymbol = 'Insurance Payment'
-                else if (item.kSymbol === 'SIPO')
-                    item.kSymbol = 'Household Payment'
-                else if (item.kSymbol === 'LEASING')
-                    item.kSymbol = 'Leasing Payment'
-                else
-                    item.kSymbol = 'Loan Payment'
                 
                 if (item.district === null)
                     item.district = district
