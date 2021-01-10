@@ -42,16 +42,18 @@ $(document).ready(() => {
         //null error checking
         if(item.trans === null)
           item.trans = trans
-        if(item.trans === "PRIJEM")
-          item.trans = "Credit"
-        else
-          item.trans = "Debit"
 
         if(item.district === null)
           item.district = district
 
         if(item.type === null)
           item.type = cardType
+        if(item.type === "junior")
+          item.type = "Junior"
+        else if(item.type === "classic")
+          item.type = "Classic"
+        else if(item.type === "gold")
+          item.type = "Gold"
 
         if(item.sum === null)
           item.sum = 0
