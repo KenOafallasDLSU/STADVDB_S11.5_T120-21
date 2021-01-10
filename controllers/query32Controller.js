@@ -20,7 +20,7 @@ exports.renderMain = (req, res) => {
         type: 'Interest Credited'
       },
       {
-        val: 'SANKC. UROK',
+        val: "SANKC. UROK",
         type: 'Sanction Interest if Negative Balance'
       },
       {
