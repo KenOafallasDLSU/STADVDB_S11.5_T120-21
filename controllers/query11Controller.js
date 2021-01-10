@@ -6,14 +6,7 @@ exports.renderMain = (req, res) => {
     pageJS: "query11JS",
     pageTitle: "Query 1-1",
     navbarTitle: "Query 1-1",
-    results: [
-      {
-        account_id: 1,
-        trans: 'PRIJEM',
-        start_date: 'wow',
-        end_date: 'zers'
-      }
-    ]
+    results: []
   })
 }
 

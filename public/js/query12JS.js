@@ -17,7 +17,7 @@ addRecordRow = (item, parentDiv) => {
 
 $(document).ready(() => {
     $('#btnSubmit').on('click', () => {
-        let k_symbol = $('#charTypeSelect').val();
+        let k_symbol = $('#charTypeSelect option:selected').text();
         let startDate = $('#startDate').val();
         let endDate = $('#endDate').val();
         console.log(`k_symbol: ${k_symbol}`);
@@ -30,15 +30,19 @@ $(document).ready(() => {
 
             let resultTable = $('#resultRecords');
             resultTable.empty(); // clear table data
-
-            data.forEach((item, i) => {
-                console.log(item);
-            
-                //populate table
-                $('#dates').text(`Queried Dates: ${startDate} to ${endDate}`);
-                $('#charType').text(`Queried Characterization Type: ${$('#charTypeSelect option:selected').text()}`);
-                addRecordRow(item, resultTable);
-            });
+            if (data.length === 0) {
+                addRecordRow({accountID: 'N/A', sum: 0, count: 0}, resultTable);
+            }
+            else {
+                data.forEach((item, i) => {
+                    console.log(item);
+                    
+                    //populate table
+                    $('#dates').text(`Queried Dates: ${startDate} to ${endDate}`);
+                    $('#charType').text(`Queried Characterization Type: ${k_symbol}`);
+                    addRecordRow(item, resultTable);
+                });
+            }
         });
     });
 })

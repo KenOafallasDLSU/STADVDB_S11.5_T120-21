@@ -8,12 +8,12 @@ exports.query11 = (accountID, startDate, endDate, next) => {
     (
       SELECT SUM(amount) AS amount
       FROM trans
-      WHERE type='PRIJEM' AND account_id=${accountID} AND date>='${startDate}' AND date<='${endDate}'
+      WHERE type='Credit' AND account_id=${accountID} AND date>='${startDate}' AND date<='${endDate}'
     ) AS credit, 
     (
       SELECT SUM(amount) AS amount
       FROM trans
-      WHERE (trans.type='VYDAJ' OR trans.type='VYBER') AND account_id=${accountID} AND date>='${startDate}' AND date<='${endDate}'
+      WHERE type='Debit' AND account_id=${accountID} AND date>='${startDate}' AND date<='${endDate}'
     ) AS debit;`
   
   console.log(sql)
