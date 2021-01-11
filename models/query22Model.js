@@ -8,7 +8,7 @@ exports.query22 = (accountID, next) => {
     (
       select  sum(amount) as amount
       from  trans
-      where account_id =${accountID} and k_symbol='uver'
+      where account_id =${accountID} and k_symbol='Loan Payment'
     ) AS t
     where account_id = ${accountID};`
   
