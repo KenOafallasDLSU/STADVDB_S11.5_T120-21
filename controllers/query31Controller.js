@@ -9,20 +9,24 @@ exports.renderMain = (req, res) => {
     .then((districtList) => {
         let kSymbolList = [
             {
-                val: 'POJISTNE',
+                val: 'Insurance Payment',
                 type: 'Insurance Payment'
             },
             {
-                val: 'SIPO',
+                val: 'Household',
                 type: 'Household'
             },
             {
-                val: 'LEASING',
+                val: 'Leasing Payment',
                 type: 'Leasing Payment'
             },
             {
-                val: 'UVER',
+                val: 'Loan Payment',
                 type: 'Loan Payment'
+            },
+            {
+                val: 'Miscellaneous',
+                type: 'Miscellaneous'
             }
         ]
 
