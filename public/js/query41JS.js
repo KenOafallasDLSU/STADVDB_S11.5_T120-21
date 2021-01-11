@@ -30,9 +30,10 @@ $(document).ready(() => {
 
     let cardType = $('#cardTypeSelect').val()
     let district = $("#districtSelect option:selected").text()
+    let districtid = $("#districtSelect").val()
     let trans = $('#transSelect').val()
 
-    $.post('query41/postQuery41', {cardType: cardType, district: district, transType: trans}, (data, status) => {
+    $.post('query41/postQuery41', {cardType: cardType, district: districtid, transType: trans}, (data, status) => {
       console.log(data);
 
       let resultTable = $('#resultRecords');

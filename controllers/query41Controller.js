@@ -26,17 +26,17 @@ exports.renderMain = (req, res) => {
       pageCSS: "query41CSS",
       pageJS: "query41JS",
       pageTitle: "Query 4-1",
-      navbarTitle: "Query 4-1",
+      navbarTitle: "Transaction Activity of Specific Types of Credit Card Holders based on District",
       cardTypeList: cardTypeList,
-      districtList: JSON.parse(JSON.stringify(districtList)),
+      districtList: districtList,
       results: [
-        {
-          district: 'Manila',
-          type: 'Electric',
-          trans: 'PRIJEM',
-          sum: '100',
-          count: '1001'
-        }
+        // {
+        //   district: 'Manila',
+        //   type: 'Electric',
+        //   trans: 'PRIJEM',
+        //   sum: '100',
+        //   count: '1001'
+        // }
       ]
     })
   })
