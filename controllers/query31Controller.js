@@ -14,7 +14,7 @@ exports.renderMain = (req, res) => {
             },
             {
                 val: 'SIPO',
-                type: 'Household Payment'
+                type: 'Household'
             },
             {
                 val: 'LEASING',
@@ -35,10 +35,8 @@ exports.renderMain = (req, res) => {
             districtList: JSON.parse(JSON.stringify(districtList)),
             results: [
                 {
-                    count: 'N/A',
                     sum: 'N/A',
                     district: 'N/A',
-                    kSymbol: 'N/A'
                 }
             ]
         })
@@ -46,10 +44,9 @@ exports.renderMain = (req, res) => {
 }
 
 exports.postQuery31 = (req, res) => {
-    let district = req.body.district;
     let kSymbol = req.body.kSymbol;
   
-    query31Model.query31(district, kSymbol, (results) => {
+    query31Model.query31(kSymbol, (results) => {
       console.log(results);
       res.send(results);
     })

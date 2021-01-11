@@ -14,14 +14,14 @@
                     </div>
 
                     <!-- District Drop Down -->
-                    <label for="district">Select District</label>
+                    <!--<label for="district">Select District</label>
                     <div class="p-1">
                         <select id="districtSelect" name="districtSelect">
                         {{#each districtList}}
                             <option class = "districtOption" value = {{ A2 }}>{{ A2 }}</option>
                         {{/each}}
                         </select>
-                    </div>
+                    </div> -->
 
                     <!-- Execute Query button -->
                     <div>
@@ -37,7 +37,6 @@
             <tr>
                 <th scope="col">District</th>
                 <th scope="col">Sum</th>
-                <th scope="col">Count</th>
             </tr>
             </thead>
             <tbody id="resultRecords">
@@ -45,7 +44,6 @@
                 <tr>
                 <td>{{district}}</th>
                 <td>{{sum}}</td>
-                <td>{{count}}</td>
                 </tr>
             {{/each}}
             </tbody>
