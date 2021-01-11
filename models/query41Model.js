@@ -3,11 +3,19 @@ const mysql = require('../mysql.js')
 exports.query41 = (cardType, district, transType, next) => {
   console.log("in query 41")
   let sql = 
-   `SELECT s.a2 as district, c.type as type, t.type as trans, SUM(t.amount) as sum, COUNT(card_id) as count
-    FROM (SELECT * FROM card WHERE type = "${cardType}") c JOIN disp d ON c.disp_id = d.disp_id
-          JOIN account a ON d.account_id = a.account_id
-          JOIN (SELECT account_id, amount, type FROM trans WHERE type = "${transType}") t ON a.account_id = t.account_id
-          JOIN (SELECT district_id, a2 FROM district WHERE a2 = "${district}") s ON a.district_id = s.district_id`
+   `SELECT s.a2 as district, c.type as type, t.type as trans, 
+           SUM(t.amount) as sum, COUNT(card_id) as count
+    FROM (SELECT * 
+          FROM card 
+          WHERE type = "${cardType}") c 
+          JOIN disp d ON c.disp_id = d.disp_id
+          JOIN (SELECT *
+                FROM account
+                WHERE district_id = "${district}") a ON d.account_id = a.account_id
+          JOIN (SELECT account_id, amount, type 
+                FROM trans 
+                WHERE type = "${transType}") t ON a.account_id = t.account_id
+          JOIN district s ON a.district_id = s.district_id`
   
   console.log(sql)
 
@@ -22,7 +30,7 @@ exports.query41 = (cardType, district, transType, next) => {
  * @param {*} next 
  */
 exports.queryDistrictNames = (next) => {
-  let sql = 'SELECT A2 FROM district ORDER BY A2 ASC'
+  let sql = 'SELECT district_id, A2 FROM district ORDER BY A2 ASC'
 
   mysql.db.query(sql, (err, result) => {
     if (err) throw err
