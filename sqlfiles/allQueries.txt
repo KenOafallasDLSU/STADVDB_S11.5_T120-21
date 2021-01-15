@@ -1,0 +1,125 @@
+# Original Query 1.1
+SELECT (credit.amount-debit.amount) AS balance
+FROM (
+	SELECT SUM(amount) AS amount
+	FROM trans
+	WHERE type='Credit' AND account_id=8261 AND date>='1993-01-01' AND date<='1998-12-31'
+) AS credit, (
+	SELECT SUM(amount) AS amount
+	FROM trans
+	WHERE type='Debit' AND account_id=8261 AND date>='1993-01-01' AND date<='1998-12-31'
+) AS debit;
+
+# Optimized Query 1.1
+SELECT (credit.amount-debit.amount) AS balance
+FROM (
+	SELECT SUM(amount) AS amount
+	FROM (SELECT amount, type, date FROM trans WHERE account_id=8261) AS intermediate_trans
+	WHERE type='Credit' AND date>='1993-01-01' AND date<='1998-12-31'
+) AS credit, (
+	SELECT SUM(amount) AS amount
+	FROM (SELECT amount, type, date FROM trans WHERE account_id=8261) AS intermediate_trans
+	WHERE type='Debit' AND date>='1993-01-01' AND date<='1998-12-31'
+) AS debit;
+
+# Original Query 1.2
+SELECT SUM(amount), COUNT(*), account_id
+FROM trans
+WHERE k_symbol='Misc. Credit' AND date>='1993-01-01' AND date<='1998-12-31'
+GROUP BY account_id;
+
+# Optimized Query 1.2
+SELECT SUM(amount), COUNT(*), account_id
+FROM (SELECT amount, account_id, k_symbol FROM trans WHERE date>='1993-01-01' AND date<='1998-12-31') AS minitrans
+WHERE k_symbol='Misc. Credit'
+GROUP BY account_id;
+
+# Query 2.1
+
+# Original Query
+SELECT d.type as holder, c.type as type, COUNT(d.disp_id) as count 
+FROM disp d, card c
+WHERE d.disp_id = c.disp_id
+AND c.type = "gold"
+AND d.type = "owner";
+
+# Optimized Query
+SELECT d.type as holder, c.type as type, COUNT(d.disp_id) as count 
+FROM card c 
+JOIN disp d ON c.disp_id = d.disp_id 
+WHERE c.type = "gold" 
+AND d.type = "owner";
+
+# Original Query 2.1
+SELECT  l.loan_id AS loan_ID, l.date AS date, l.amount AS amount, l.status as status, (l.amount - t.amount) AS remaining
+FROM  	loan l
+JOIN	trans t ON l.account_id = t.account_id
+WHERE 	l.account_id = 11349 and t.k_symbol='Loan Payment'
+GROUP BY l.account_id;
+
+# Optimized Query 2.2
+SELECT  l.loan_id AS loan_ID, l.date AS date, l.amount AS amount, l.status as status, (l.amount - t.amount) AS remaining
+FROM  loan AS l, 
+    (
+      select  sum(amount) as amount
+      from  trans
+      where account_id =${accountID} and k_symbol='Loan Payment'
+) AS t
+WHERE account_id = ${accountID};
+
+### SQL OPTIMIZED QUERY TABLE 3.1 ###
+SELECT s.a2 as district, COUNT(t.order_id) as count, SUM(t.amount) as sum	
+FROM (SELECT * from financial.order where K_symbol = 'Insurance Payment') t
+JOIN account a ON t.account_id = a.account_id
+JOIN (SELECT district_id, a2 FROM district) s on a.district_id = s.district_id
+GROUP BY s.a2;
+
+### SQL ORIGINAL QUERY TABLE 3.1 ###
+SELECT d.a2 as district, COUNT(o.order_id) as count, SUM(o.amount) as sum	
+FROM financial.order o, account a, district d
+WHERE o.k_symbol = 'Insurance Payment' AND o.account_id = a.account_id
+	AND a.district_id = d.district_id
+GROUP BY d.a2;
+
+#QUERY 3.2
+#Original Query
+SELECT d.a2 AS district, COUNT(t.trans_id) AS count, SUM(t.amount) AS sum
+FROM trans t, account a, district d
+WHERE t.k_symbol = "UROK" AND t.date >= "1995-04-13" AND t.date <= "1995-06-13"
+	AND t.account_id = a. account_id
+    AND a.district_id = d.district_id
+GROUP BY d.a2;
+
+
+#Optimized Query
+SELECT s.a2 AS district, COUNT(t.trans_id) AS count, SUM(t.amount) AS sum
+FROM (SELECT * FROM trans WHERE k_symbol = "UROK" AND date >= '1995-04-13' AND date <= '1995-06-13') t 
+JOIN account a ON t.account_id = a.account_id
+JOIN (SELECT district_id, a2 FROM district) s ON a.district_id = s.district_id
+GROUP BY s.a2;
+
+#Original Query 4.1
+SELECT s.a2 as district, c.type as type, t.type as trans, 
+       SUM(t.amount) as sum, COUNT(card_id) as count
+FROM card c JOIN disp d ON c.disp_id = d.disp_id
+            JOIN account a  ON d.account_id = a.account_id
+            JOIN trans t ON a.account_id = t.account_id
+            JOIN district s ON a.district_id = s.district_id
+WHERE c.type = "gold"
+AND t.type = "Debit"
+AND s.district_id = "1";
+
+#Optimized Query 4.1
+SELECT s.a2 as district, c.type as type, t.type as trans, 
+       SUM(t.amount) as sum, COUNT(card_id) as count
+FROM (SELECT * 
+      FROM card 
+      WHERE type = "gold") c 
+      JOIN disp d ON c.disp_id = d.disp_id
+      JOIN (SELECT *
+            FROM account
+            WHERE district_id = "1") a ON d.account_id = a.account_id
+      JOIN (SELECT account_id, amount, type 
+            FROM trans 
+            WHERE type = "Debit") t ON a.account_id = t.account_id
+      JOIN district s ON a.district_id = s.district_id;
