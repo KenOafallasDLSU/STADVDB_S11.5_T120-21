@@ -2,6 +2,7 @@
 STADVDB Git Repository
 
 ## Build for local
+### Step 0: Install Node.js and npm
 ### Step 1: Import financial database using FinancialDB.sql found in Team Notion to MySQL
 
 ### Step 2: Run MPPreProcess.sql as preprocessing for the database
