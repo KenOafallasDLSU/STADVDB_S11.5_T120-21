@@ -25,10 +25,13 @@
 
   <div class="row" id="query11-div">
     <div class="col">
-      <h5>Query 1.1 [Header]</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget scelerisque purus, 
-        at consectetur ante. Sed scelerisque elementum magna, eget sollicitudin ligula fringilla 
-        in. Ut varius hendrerit tristique. Phasellus vel finibus leo, at sollicitudin ex.</p>
+      <h5>Query 1.1 [Net Balance Over a Time Period]</h5>
+      <p>The purpose of this query is to check the “balance” or the movement of money of a single account
+         by subtracting the sum of all the debit labeled transactions from the sum of all the credit 
+         labeled transactions. Since the start date and end date of the transactions is also available, 
+         whoever is querying also has the ability to check transactions between two dates such as a 
+         certain month or a week.
+      </p>
     </div>
   </div>
 
@@ -36,10 +39,13 @@
   <br><br>
   <div class="row" id="query12-div">
     <div class="col">
-      <h5>Query 1.2 [Header]</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget scelerisque purus, 
-        at consectetur ante. Sed scelerisque elementum magna, eget sollicitudin ligula fringilla 
-        in. Ut varius hendrerit tristique. Phasellus vel finibus leo, at sollicitudin ex.</p>
+      <h5>Query 1.2 [Characterization Summary of Transactions]</h5>
+      <p>The purpose of this query is to show the general information about all the transactions of a 
+        certain characterization (such as credited interest or insurance payment) per account, like 
+        the total amount per account or number of transactions per account. The transactions queried 
+        can also be between two specified dates so the user can check transactions for a certain month 
+        or week.
+      </p>
     </div>
   </div>
 
@@ -51,11 +57,19 @@
 
   <div class="row" id="query21-div">
     <div class="col">
-      <h5>Query 2.1 [Card - Disposition]</h5>
-      <p>This query makes use of the <b><i>card and disposition tables</i></b> to obtain the
+      <h5>Query 2.1 [Count of Credit Card Holders of a Type and Disposition]</h5>
+      <p>
+        <!--This query makes use of the <b><i>card and disposition tables</i></b> to obtain the
       number of clients who own the following types of cards offered by the Czech bank -
       gold card, a classic card, and a junior card. Each client is also distinguished by their
-      disposition, whether they are classified as an owner or a dispotent.</p>
+      disposition, whether they are classified as an owner or a dispotent.-->
+      The purpose of this query is to get the total number of card type per disposition type, 
+      that is, the query makes use of the Card and Disposition tables to obtain the number of 
+      clients who own the following type of cards offered by the Czech bank: Gold, classic, 
+      and junior.  Each client, or disposition type, is distinguished by two categories: 
+      If they are an owner or a disponent, or someone who uses or is in charge of the card 
+      type reflected in the table but does not own it.
+      </p>
     </div>
   </div>
 
@@ -63,10 +77,14 @@
   <br><br>
   <div class="row" id="query22-div">
     <div class="col">
-      <h5>Query 2.2 [Header]</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget scelerisque purus, 
-        at consectetur ante. Sed scelerisque elementum magna, eget sollicitudin ligula fringilla 
-        in. Ut varius hendrerit tristique. Phasellus vel finibus leo, at sollicitudin ex.</p>
+      <h5>Query 2.2 [Status of Loans and Remaining Balance to be Paid by a Customer]</h5>
+      <p>The purpose of this query is to show if the selected account has any loans. 
+        If the account has a loan in record, the details will be displayed. The loan 
+        ID, the date the loan was taken, and its current status will be displayed. 
+        If the loan is not yet fully paid the remaining balance will be shown by 
+        subtracting the transactions made to the loan taken, otherwise it will 
+        display that the loan is finished.
+      </p>
     </div>
   </div>
 
@@ -78,10 +96,13 @@
   
   <div class="row" id="query31-div">
     <div class="col">
-      <h5>Query 3.1 [Header]</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget scelerisque purus, 
-        at consectetur ante. Sed scelerisque elementum magna, eget sollicitudin ligula fringilla 
-        in. Ut varius hendrerit tristique. Phasellus vel finibus leo, at sollicitudin ex.</p>
+      <h5>Query 3.1 [Total Value of Permanent Orders of a Payment Type per District]</h5>
+      <p>The purpose of this query is to check the total amount gained by a district 
+        using a particular characterization method that determines the nature of the 
+        payment. This enables the user to see which method or characterization has 
+        the most amount and is most frequent in a district and could help determine 
+        the status of which transaction is most apparent in a district.
+      </p>
     </div>
   </div>
 
@@ -89,10 +110,16 @@
   <br><br>
   <div class="row" id="query32-div">
     <div class="col">
-      <h5>Query 3.2 [Header]</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget scelerisque purus, 
-        at consectetur ante. Sed scelerisque elementum magna, eget sollicitudin ligula fringilla 
-        in. Ut varius hendrerit tristique. Phasellus vel finibus leo, at sollicitudin ex.</p>
+      <h5>Query 3.2 [Summary of Transactions of a Payment Type in a Certain Timespan per District]</h5>
+      <p> The purpose of this query is to show the users, how many transactions and the 
+        total amount of transactions are made per district of a certain characterization 
+        of transaction (K_Symbol) in a timespan . In the real world, this is an important 
+        feature because it enables the users (banks) to see in what district do they 
+        have the most  transactions of a certain K_symbol so they can upgrade their 
+        services based on the data available. It also enables them to see how many 
+        people use their bank in a specific time period so they can analyze how their 
+        bank is doing.
+      </p>
     </div>
   </div>
 
@@ -104,10 +131,27 @@
 
   <div class="row" id="query41-div">
     <div class="col">
-      <h5>Query 4.1 [Header]</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget scelerisque purus, 
-        at consectetur ante. Sed scelerisque elementum magna, eget sollicitudin ligula fringilla 
-        in. Ut varius hendrerit tristique. Phasellus vel finibus leo, at sollicitudin ex.</p>
+      <h5>Query 4.1 [Transaction Activity of Specific Types of Credit Card Holders based on District]</h5>
+      <p> Credit Card Holders represent a portion of the bank’s customer base that is a constant 
+        source of revenue through interest payments. Knowing the transaction activity of credit 
+        card holders in a certain district would allow the bank to formulate business strategies 
+        that would take advantage of the holders’ activities, such as providing better interest 
+        rates and promos for credit card applications in districts with low activity in order 
+        entice residents there to get credit cards. In districts with large activity, the bank 
+        can focus collection efforts in those districts to increase the likelihood that high 
+        value credit card loans are paid for. 
+        <br>
+        <br>
+        Also, knowing which type of credit card holder is active in a district informs decisions 
+        on prestige offers for gold holders, who are large spenders, to entice them to 
+        spend/transact with the bank more and go through the bank using their credit cards. 
+        In districts with low gold/classic spending, efforts can be made to make higher tier 
+        credit cards be more desirable.
+        <br>
+        <br>
+        Ultimately, the information informs business decisions regarding tiered credit cards 
+        and prestige offers, and to which districts these efforts are directed to.
+      </p>
     </div>
   </div>
 

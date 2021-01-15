@@ -5,7 +5,7 @@ exports.renderMain = (req, res) => {
     pageCSS: "query32CSS",
     pageJS: "query32JS",
     pageTitle: "Query 3-2",
-    navbarTitle: "Query 3-2",
+    navbarTitle: "Summary of Transactions of a Payment Type in a Certain Timespan per District",
     kSymbolList: [
       {
         val: 'insurance_payment',
