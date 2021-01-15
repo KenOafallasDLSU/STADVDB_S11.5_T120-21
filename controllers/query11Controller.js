@@ -5,7 +5,7 @@ exports.renderMain = (req, res) => {
     pageCSS: "query11CSS",
     pageJS: "query11JS",
     pageTitle: "Query 1-1",
-    navbarTitle: "Query 1-1",
+    navbarTitle: "Net Balance Over a Time Period",
     results: []
   })
 }

@@ -2,7 +2,7 @@ const query22Model = require('../models/query22Model');
 
 exports.getQuery22 = (req, res) => {
   res.render('query22', {
-    navbarTitle: "Query 2-2",
+    navbarTitle: "Status of Loans and Remaining Balance to be Paid by a Customer",
     pageTitle: "Query 2-2",
     pageJS: "query22JS",
     pageCSS: "query22CSS",

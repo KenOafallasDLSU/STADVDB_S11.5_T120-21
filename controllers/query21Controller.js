@@ -2,7 +2,7 @@ const query21Model = require('../models/query21Model');
 
 exports.getQuery21 = (req, res) => {
   res.render('query21', {
-    navbarTitle: "Query 2-1",
+    navbarTitle: "Count of Credit Card Holders of a Type and Disposition",
     pageTitle: "Query 2-1",
     pageJS: "query21JS",
     pageCSS: "query21CSS",
