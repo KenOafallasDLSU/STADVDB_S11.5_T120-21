@@ -30,7 +30,7 @@ exports.renderMain = (req, res) => {
             pageCSS: "query31CSS",
             pageJS: "query31JS",
             pageTitle: "Query 3-1",
-            navbarTitle: "Query 3-1",
+            navbarTitle: "Total Value of Permanent Orders of a Payment Type per District",
             kSymbolList: kSymbolList,
             districtList: JSON.parse(JSON.stringify(districtList)),
             results: [

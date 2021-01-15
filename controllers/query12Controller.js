@@ -5,7 +5,7 @@ exports.renderMain = (req, res) => {
     pageCSS: "query12CSS",
     pageJS: "query12JS",
     pageTitle: "Query 1-2",
-    navbarTitle: "Query 1-2",
+    navbarTitle: "Characterization Summary of Transactions",
     charTypeList: [
       {
         val: 'insurance_payment',
